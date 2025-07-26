@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>¡Feliz Cumpleaños Nélida!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #ffe6cc);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      color: #c2185b;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.2em;
+      animation: pulse 2s infinite;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin: 0.5em 0;
+    }
+
+    .firma {
+      margin-top: 1.5em;
+      font-style: italic;
+      color: #880e4f;
+      font-weight: bold;
+    }
+
+    .corazon {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      transform: rotate(45deg);
+      animation: flotar 8s linear infinite;
+      opacity: 0.7;
+    }
+
+    .corazon::before,
+    .corazon::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .corazon::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .corazon::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes flotar {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <h1>💖 ¡Feliz Cumpleaños, Nélida! 💖</h1>
+  <p>Que este día esté lleno de amor, sonrisas y mucha alegría.</p>
+  <p>🎉 Te mereces lo mejor del mundo hoy y siempre. 🎉</p>
+  <p class="firma">Con mucho cariño,</p>
+  <p class="firma">Malek Arni Mondalo Nuñez 💐</p>
+
+  <script>
+    // Generar corazones flotantes
+    function crearCorazon() {
+      const corazon = document.createElement("div");
+      corazon.classList.add("corazon");
+      corazon.style.left = Math.random() * 100 + "vw";
+      corazon.style.animationDuration = (Math.random() * 3 + 5) + "s";
+      document.body.appendChild(corazon);
+
+      setTimeout(() => corazon.remove(), 8000);
+    }
+
+    setInterval(crearCorazon, 200);
+  </script>
+</body>
+</html>
